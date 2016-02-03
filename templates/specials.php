@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row content-special">
-        <?php echo push_hots() ?>
+        <?php echo push_hots_or_newings(HOTS_SHOW, 'sale-sprite') ?>
     </div>
 </div>
 <div class="container specials col-md-10">
@@ -19,6 +19,6 @@
         </div>
     </div>
     <div class="row content-special">
-        <?php echo push_newings() ?>
+        <?php echo push_hots_or_newings(NEWINGS_SHOW,'new-sprite') ?>
     </div>
 </div>
