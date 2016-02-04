@@ -391,6 +391,10 @@ input[type="submit"]{
     vertical-align:middle;
 }
 
+.navbar-nav>li.active-cathegory{
+    background-color:#f18732;;
+}
+
 
 
 
