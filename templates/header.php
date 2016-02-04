@@ -34,7 +34,7 @@
 
     <div class="container-fluid middlemenu">
         <div class="row">
-            <div class="col-md-3 logo"><img width="90px" src="../images/logo.png"</div>
+            <a href="index.php"><div class="col-md-3 logo"><img width="90px" src="../images/logo.png"</div></a>
 
             </div>
             <div class="col-md-4">
