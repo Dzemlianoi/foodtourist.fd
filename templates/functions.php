@@ -40,9 +40,19 @@ function get_data($query) {
 
 //Выводим категории
 function push_cathegories(){
+
     foreach(get_data(ALL_CATEGORIES) as $cat){
-        $push_categories.='<li class="col-md-2"><a href="http://foodtourist.fd/category='.$cat['id'].'">'.$cat['name']
-        .'</a></li>';
+//        if(isset('category')){
+            $selector='';
+            if($_GET['category']===$cat['id']){
+                $selector=' active-cathegory';
+//            }
+        };
+        $push_categories.=
+            '<li class="col-md-2'.$selector.'">
+                <a href="/categories.php?category=' .$cat['id'].'">' .$cat['name'] .'
+                </a>
+            </li>';
     }
     return $push_categories;
 }
@@ -63,4 +73,25 @@ function push_hots_or_newings($TYPE, $text){
         </div>';
     }
     return $push_hot;
+}
+
+
+function get_request_param($param){
+    if (!empty($_GET[$param])){
+        return $_GET[$param];
+    }else{
+        return false;
+    }
+}
+function get_content_cathegory()
+{
+    if (get_request_param('category')) {
+        foreach (get_data("SELECT 'id', 'name' FROM cathegories") as $id => $name) {
+            if ($id == get_request_param('category')) {
+                return $result == $id;
+            } else {
+                return 'категория не найдена';
+            }
+        }
+    }
 }
