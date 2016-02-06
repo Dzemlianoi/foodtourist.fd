@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Служба доставки еды - Foodtourist</title>
 
-    <link rel="stylesheet" href="../сss/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="../сss/bootstrap-theme.css" type="text/css">
+    <link rel="stylesheet" href="../сss/bootstrap/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../сss/bootstrap/bootstrap-theme.css" type="text/css">
     <link rel="stylesheet" href="../сss/font-awesome.css" type="text/css">
-    <link rel="stylesheet" href="../сss/owl.theme.default.css" type="text/css">
-    <link rel="stylesheet" href="../сss/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="../сss/owl/owl.theme.default.css" type="text/css">
+    <link rel="stylesheet" href="../сss/owl/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="../сss/owl/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="../сss/noUI/nouislider.css" type="text/css">
+    <link rel="stylesheet" href="../сss/noUI/nouislider.pips.css" type="text/css">
+    <link rel="stylesheet" href="../сss/noUI/nouislider.tooltips.css" type="text/css">
     <link rel="stylesheet" href="../сss/style.css" type="text/css">
 
 </head>
@@ -56,9 +60,10 @@
             </div>
             <div class="col-md-2 no-padding-left">
                 <div class="recall-form">
-                <form class="form-inline">
-                    <input type="text" name="recall" id="recall" class="input-sm inline" placeholder="xxx-xxx-xx-xx">
-                    <button type="submit" class="fa fa-phone inline fa-2x recallimg"></button>
+                    <form class="form-inline">
+                        <input type="text" name="recall" id="recall" class="input-sm inline" placeholder="xxx-xxx-xx-xx">
+                        <button type="submit" class="fa fa-phone inline fa-2x recallimg"></button>
+                    </form>
                 </div>
             </div>
             <div class="col-md-3">
