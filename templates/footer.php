@@ -36,9 +36,10 @@
     </div>
 </div>
 
-<script src="../js/jquery-2.2.0.js"></script>
-<script src="../js/bootstrap.js"></script>
-<script src="../js/owl.carousel-2.0.js"></script>
+<script src="../js/jquery/jquery-2.2.0.js"></script>
+<script src="../js/nouislider.js"></script>
+<script src="../js/bootstrap/bootstrap.js"></script>
+<script src="../js/owl/owl.carousel-2.0.js"></script>
 <script src="../js/js.js"></script>
 
 
