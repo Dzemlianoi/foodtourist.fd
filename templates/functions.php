@@ -42,12 +42,10 @@ function get_data($query) {
 function push_cathegories(){
 
     foreach(get_data(ALL_CATEGORIES) as $cat){
-//        if(isset('category')){
             $selector='';
             if($_GET['category']===$cat['id']){
                 $selector=' active-cathegory';
                 $cat['name'];
-//            }
         };
         $push_categories.=
             '<li class="col-md-2'.$selector.'">
@@ -57,7 +55,7 @@ function push_cathegories(){
     }
     return $push_categories;
 }
-//Выводим хот предложения
+//Выводим хот предложения или новинки
 function push_hots_or_newings($TYPE, $text){
     foreach(get_data($TYPE) as $hot){
         $push_hot.='<div class="special-element">
@@ -76,7 +74,7 @@ function push_hots_or_newings($TYPE, $text){
     return $push_hot;
 }
 
-
+//Получить данные определенного параметра из адресного строки
 function get_request_param($param){
     if ((isset($_GET[$param]))&&(!empty($_GET[$param]))){
         return $_GET[$param];
@@ -85,6 +83,7 @@ function get_request_param($param){
     }
 }
 
+//Получить категорию забирая id из УРЛа
 function get_current_cat_name(){
     $cat_id=get_request_param('category');
     if ($cat_id){
@@ -100,10 +99,12 @@ function get_current_cat_name(){
 
 }
 
+//Взять название подключаемого файла
 function recognize_php_file_by_url(){
     $server_path=pathinfo($_SERVER['PHP_SELF'],PATHINFO_FILENAME);
     return $server_path;
 }
+//В зависимости от введеннго адреса пушим бредкрамбс
 function breadcrumbs_push(){
     $param=recognize_php_file_by_url();
     switch ($param){
@@ -120,6 +121,41 @@ function breadcrumbs_push(){
 
 
 }
+
+function get_filters_by_cat_id(){
+    $cat_id=get_request_param('category');
+    $filter_array=get_data(SELECT_FILTER_BY_CAT_ID.' '.$cat_id);
+    $push_filters='';
+
+    foreach($filter_array as $filter){
+
+        $push_filters.=<<<HOM
+            <div class="filter-block box-filter for-submit">
+                <span class="filter-name">${filter['name']}</span>
+                <input type="checkbox" id="${filter['param_url']}1}" name="${filter['param_url']}" value="1">
+                <label class="fil-name-chk" for="${filter['param_url']}2">Да</label>
+                <br/>
+                <input type="checkbox" id="${filter['param_url']}2" name="${filter['param_url']}" value="0">
+                <label class="fil-name-chk" for="${filter['param_url']}2">Нет</label>
+                <br/>
+            </div>
+HOM;
+        }
+    return $push_filters;
+}
+//Получение максимальной и минимальной цены категории, через ГЕТ
+function get_max_or_min_price_by_current_cat($param){
+    $cat_id = get_request_param('category');
+    $price=get_data($param.$cat_id);
+    foreach($price as $out=>$in){
+        foreach ($in as $id=>$cost) {
+            $result=$cost;
+        }
+    }
+
+    return intval($cost);
+}
+
 
 
 //if ((isset($_GET['cathegory'])) && (!isset($_GET['good']))){
