@@ -255,8 +255,14 @@ img.big:hover,img.small:hover{
     height:500px;
 }
 .filter-name {
+    display:block;
     font-size: 14px;
     font-weight: bold;
+}
+.filter-cat .submit-filter{
+    width:145px;
+    height:35px;
+    margin:20px 50px;
 }
 #price{
     margin-top:15px;
@@ -301,6 +307,124 @@ img.big:hover,img.small:hover{
 }
 .last-fil-name-chk{
     margin-bottom:15px;
+}
+/*catalog*/
+.catalog{
+    margin-top:20px;
+    margin-left:20px;
+}
+
+.cat-name-filter{
+    font-size: 24px;
+    font-weight: bold;
+}
+.numb-goods{
+    color:#999;
+    font-size:12px;
+    margin-left:10px;
+}
+.cat-fil-schema{
+    height:68px;
+    width:100%;
+    background-color: white;
+    margin-top:20px;
+    border-radius:8px;
+    border-top:3px solid darkorange;
+    padding:0 25px;
+    vertical-align: middle;
+    margin-left:-5px;
+}
+.choose-filter{
+    display: inline-block;
+    width:60%;
+    margin-left:8px;
+    line-height: 68px;
+    vertical-align:middle;
+}
+.type-list{
+    display:block;
+    text-align: center;
+}
+.type-show-box{
+    height:100%;
+    vertical-align: middle;
+}
+.type-chosen{
+    padding-top:16px;
+}
+.type-t-or-l{
+    padding-top:9px;
+    margin-left:30px;
+    margin-right:30px;
+}
+#type-of-show1{
+    margin-right:40px;
+}
+.cat-item{
+    height:200px;
+    padding:0;
+    width:100%;
+    margin-top:30px;
+    vertical-align: middle;
+    border-bottom:1px solid #e7e2db;
+}
+.cat-it-img-blk{
+    background-color: white;
+    width:198px;
+    height:200px;
+    text-align: center;
+    border:1px solid #e7e2db;
+    margin-right:7px;
+    vertical-align: middle;
+}
+.goods-cat{
+    display: inline-block;
+    width:850px;
+    margin-left:30px;
+    padding: 0px;
+
+}
+.cat-it-info{
+    width:70%;
+    height:100%;
+    position:relative;
+    vertical-align: middle;
+}
+.cat-it-name{
+    display:block;
+    font-size:16px;
+    font-weight: bold;
+    color:#e85521;
+    margin-bottom:15px;
+    text-decoration: underline;
+}
+.cat-it-price{
+    color:black;
+    font-weight: bold;
+    display: block;
+    font-size:14px;
+    margin-bottom: 22px;
+}
+.cat-it-info input[type='number']{
+    margin-left:0px;
+    width:80px;
+    height:30px;
+}
+.cat-it-info input[type='submit']{
+    margin-left:30px;
+    width:120px;
+    height:30px;
+}
+.cat-it-image{
+    width:180px;
+    height:190px;
+}
+.cat-short-desc{
+    font-size:13px;
+    font-style: italic;
+    color:darkgrey;
+    text-align: justify;
+    margin-top:25px;
 }
 /*Specials*/
 .specials{
