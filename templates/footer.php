@@ -41,6 +41,38 @@
 <script src="../js/bootstrap/bootstrap.js"></script>
 <script src="../js/owl/owl.carousel-2.0.js"></script>
 <script src="../js/js.js"></script>
+<script>
+var slider = document.getElementById('price');
+
+noUiSlider.create(slider, {
+start: [<?php echo get_price_by_current_cat(MIN_PRICE_FROM_CATS) ?>, <?php echo get_price_by_current_cat
+(MAX_PRICE_FROM_CATS) ?>],
+connect: true,
+range: {
+'min': <?php echo get_price_by_current_cat(MIN_PRICE_FROM_CATS) ?>,
+'max': <?php echo get_price_by_current_cat(MAX_PRICE_FROM_CATS) ?>
+}
+});
+var valueInput = document.getElementById('value-min'),
+valueMax = document.getElementById('value-max');
+
+// When the slider value changes, update the input and span
+slider.noUiSlider.on('update', function( values, handle ) {
+if ( handle ) {
+valueMax.value = values[handle];
+} else {
+valueInput.value = values[handle];
+}
+});
+
+// When the input changes, set the slider value
+valueInput.addEventListener('change', function(){
+slider.noUiSlider.set([null, this.value]);
+});
+valueMax.addEventListener('change', function(){
+slider.noUiSlider.set([null, this.value]);
+});
+</script>
 
 
 </body>
