@@ -159,12 +159,13 @@ function get_max_or_min_price_by_current_cat($param){
     return intval($cost);
 }
 
-function get_goods_from_cat($param){
-    $cat_id=get_request_param('category');
-    $goods_array=get_data($param.$cat_id.ORDER);
-    $result='';
-        foreach ($goods_array as $good){
-            $result.=<<<RES
+function get_goods_from_cat($param)
+{
+    $cat_id = get_request_param('category');
+    $goods_array = get_data($param . $cat_id . ' ' . setWhere());
+    $result = '';
+    foreach ($goods_array as $good) {
+            $result .= <<<RES
             <form method='get' action="categories.php?category=${_GET['category']}"?>
             <div class="cat-item container col-md-9">
                 <div  class="cat-it-img-blk inline">
@@ -181,16 +182,22 @@ function get_goods_from_cat($param){
             </div>
             </form>
 RES;
-
-        }
+    }
     return $result;
 }
 function setWhere(){
     $where='';
     if(!empty($_GET['max'])&&!empty($_GET['min'])){
-        $where="BETWEEN".$_GET['min']." AND ".$_GET['max'];
+        $where.="AND goods.price BETWEEN ".$_GET['min']." AND ".$_GET['max'];
     }
-
+//    foreach(get_filters_by_cat_id() as $fil_array) {
+//        $fil_name=$fil_array['name'];
+//        $fil_value=$_GET[$fil_name];
+//        if (is_bool($fil_name)){
+//            $where.="AND goods.$fil_name=$fil_value";
+//        }
+//        }
+    return $where;
 }
 
 
