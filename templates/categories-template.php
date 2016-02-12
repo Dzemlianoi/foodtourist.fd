@@ -4,7 +4,7 @@
 <!--            Прайс-фильтр-->
             <div class="price-filter filter-block for-submit">
                 <span class="filter-name">Цена</span>
-                <form method="get" name="filter" action="categories.php?category=<?php echo$_GET['category']?>">
+                <form method="get" name="filter" action="categories.php">
                     <div id="price">
                     </div>
                     <div class="price-controllers">
@@ -13,7 +13,6 @@
                     </div>
             </div>
             <?php echo get_filters_by_cat_id() ?>
-            <input type="submit" class="submit-filter" value="Фильтр">
 
         </div>
     </div>
@@ -42,57 +41,11 @@
                 <input type="hidden" name="category" value="<?php echo $_GET['category'] ?>">
             </div>
             <input type="submit" class="submit-filter" value="Фильтр">
+            </form>
         </div>
     </div>
     <div class="goods-cat container">
-        <div class="cat-item container col-md-9">
-            <div  class="cat-it-img-blk inline">
-                <img class="cat-it-image" src="../images/goods/pizza/berluskoni.png"/>
-            </div>
-            <div class="cat-it-info inline">
-                <span class="cat-it-name">Берлускони</span>
-                <span class="cat-it-price">Цена:  101 грн</span>
-                <input type="number" min="0" value=0 name="quantity">
-                <input type="submit" value="Заказать" name="gooda">
-                <p class="cat-short-desc">Состав пиццы: соус пикант,сыр моцарелла, свинина маринованная, телятина
-                    маринованная,
-                    куриное
-                    филе, лук, помидоры, петрушка, укроп</p>
-            </div>
-        </div>
-        <div class="cat-item container col-md-9">
-            <div  class="cat-it-img-blk inline">
-                <img class="cat-it-image" src="../images/goods/pizza/berluskoni.png"/>
-            </div>
-            <div class="cat-it-info inline">
-                <span class="cat-it-name">Берлускони</span>
-                <span class="cat-it-price">Цена:  101 грн</span>
-                <input type="number" min="0" value=0 name="quantity">
-                <input type="submit" value="Заказать" name="goodb">
-                <p class="cat-short-desc">Состав пиццы: соус пикант,сыр моцарелла, свинина маринованная, телятина
-                    маринованная,
-                    куриное
-                    филе, лук, помидоры, петрушка, укроп</p>
-            </div>
-        </div>
-        <div class="cat-item container col-md-9">
-            <div  class="cat-it-img-blk inline">
-                <img class="cat-it-image" src="../images/goods/pizza/berluskoni.png"/>
-            </div>
-            <div class="cat-it-info inline">
-                <span class="cat-it-name">Берлускони</span>
-                <span class="cat-it-price">Цена:  101 грн</span>
-                <input type="number" min="0" value=0 name="quantity">
-                <input type="submit" value="Заказать" name="goodv">
-                <p class="cat-short-desc">Состав пиццы: соус пикант,сыр моцарелла, свинина маринованная, телятина
-                    маринованная,
-                    куриное
-                    филе, лук, помидоры, петрушка, укроп</p>
-            </div>
-        </div>
-        </form>
-    </div>
-
+        <?php echo get_goods_from_cat(ALL_GOODS_FROM_CAT) ?>
 </div>
 
 

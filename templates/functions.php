@@ -126,9 +126,7 @@ function get_filters_by_cat_id(){
     $cat_id=get_request_param('category');
     $filter_array=get_data(SELECT_FILTER_BY_CAT_ID.' '.$cat_id);
     $push_filters='';
-
     foreach($filter_array as $filter){
-
         $push_filters.=<<<HOM
             <div class="filter-block box-filter for-submit">
                 <span class="filter-name">${filter['name']}</span>
@@ -141,6 +139,9 @@ function get_filters_by_cat_id(){
             </div>
 HOM;
         }
+    $push_filters.="<input type='hidden' name='category' value='$cat_id'>
+<input type='submit' class='submit-filter' value='Фильтр'><br/>
+</form>";
     return $push_filters;
 }
 //Получение максимальной и минимальной цены категории, через ГЕТ
@@ -154,6 +155,33 @@ function get_max_or_min_price_by_current_cat($param){
     }
 
     return intval($cost);
+}
+
+function get_goods_from_cat($param){
+    $cat_id=get_request_param('category');
+    $goods_array=get_data($param.$cat_id.ORDER);
+    $result='';
+        foreach ($goods_array as $good){
+            $result.=<<<RES
+            <form method='get' action="categories.php?category=${_GET['category']}"?>
+            <div class="cat-item container col-md-9">
+                <div  class="cat-it-img-blk inline">
+                    <img class="cat-it-image" src="../images/goods/${good['picture_name']}"/>
+                </div>
+                <div class="cat-it-info inline">
+                    <span class="cat-it-name">${good['name']}</span>
+                    <span class="cat-it-price">Цена:  ${good['price']} грн</span>
+                    <input type="number" min="0" value=0 name="quantity">
+                    <input type ="hidden" name=${good['id']}>
+                    <input type="submit" value="Заказать">
+                    <p class="cat-short-desc">${good['description']}</p>
+                </div>
+            </div>
+            </form>
+RES;
+
+        }
+    return $result;
 }
 
 
