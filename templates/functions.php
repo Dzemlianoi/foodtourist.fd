@@ -139,9 +139,7 @@ function get_filters_by_cat_id(){
             </div>
 HOM;
         }
-    $push_filters.="<input type='hidden' name='category' value='$cat_id'>
-<input type='submit' class='submit-filter' value='Фильтр'><br/>
-</form>";
+    $push_filters.="<input type='submit' class='submit-filter' value='Фильтр'>";
     return $push_filters;
 }
 //Получение максимальной и минимальной цены категории, через ГЕТ

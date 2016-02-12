@@ -45,12 +45,12 @@
 var slider = document.getElementById('price');
 
 noUiSlider.create(slider, {
-start: [<?php echo get_price_by_current_cat(MIN_PRICE_FROM_CATS) ?>, <?php echo get_price_by_current_cat
+start: [<?php echo get_max_or_min_price_by_current_cat(MIN_PRICE_FROM_CATS) ?>, <?php echo get_max_or_min_price_by_current_cat
 (MAX_PRICE_FROM_CATS) ?>],
 connect: true,
 range: {
-'min': <?php echo get_price_by_current_cat(MIN_PRICE_FROM_CATS) ?>,
-'max': <?php echo get_price_by_current_cat(MAX_PRICE_FROM_CATS) ?>
+'min': <?php echo get_max_or_min_price_by_current_cat(MIN_PRICE_FROM_CATS)?>,
+'max': <?php echo get_max_or_min_price_by_current_cat(MAX_PRICE_FROM_CATS) ?>
 }
 });
 var valueInput = document.getElementById('value-min'),

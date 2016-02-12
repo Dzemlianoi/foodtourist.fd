@@ -40,8 +40,8 @@
                 <input type ="radio" id="type-of-show2" name="type-of-show" value="table">
                 <input type="hidden" name="category" value="<?php echo $_GET['category'] ?>">
             </div>
-            <input type="submit" class="submit-filter" value="Фильтр">
-            </form>
+            <input type='submit' class='submit-filter' value='Фильтр'><br/>
+            </form>;
         </div>
     </div>
     <div class="goods-cat container">
