@@ -20,3 +20,8 @@ const MIN_PRICE_FROM_CATS="SELECT MIN( goods.price )
 FROM cathegories, goods
 WHERE cathegories.id = goods.cathegory_id
 AND cathegories.id =";
+const ALL_GOODS_FROM_CAT="SELECT goods.id, goods.name, goods.picture_name, goods.weight, goods.price, goods.description
+FROM goods, cathegories
+WHERE cathegories.id = goods.cathegory_id
+AND cathegories.id =";
+const ORDER =" ORDER BY price DESC";
