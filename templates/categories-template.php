@@ -12,7 +12,7 @@
                         <input type="text" class="fil-from-to" name="max" id="value-max"/>
                     </div>
             </div>
-            <?php echo get_filters_by_cat_id() ?>
+            <?php echo push_filter_of_cat() ?>
 
         </div>
     </div>
