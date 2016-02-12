@@ -121,12 +121,16 @@ function breadcrumbs_push(){
 
 
 }
-
+//Выбираем фильтры по категории
 function get_filters_by_cat_id(){
     $cat_id=get_request_param('category');
-    $filter_array=get_data(SELECT_FILTER_BY_CAT_ID.' '.$cat_id);
+    return $filter_array=get_data(SELECT_FILTER_BY_CAT_ID.' '.$cat_id);
+
+}
+//Пушим фильтры в фильтр-бокс
+function push_filter_of_cat(){
     $push_filters='';
-    foreach($filter_array as $filter){
+    foreach(get_filters_by_cat_id() as $filter){
         $push_filters.=<<<HOM
             <div class="filter-block box-filter for-submit">
                 <span class="filter-name">${filter['name']}</span>
@@ -138,8 +142,8 @@ function get_filters_by_cat_id(){
                 <br/>
             </div>
 HOM;
-        }
-    $push_filters.="<input type='submit' class='submit-filter' value='Фильтр'>";
+    }
+    $push_filters.="<input type='submit' class='submit-filter' name='filters' value='Фильтр'>";
     return $push_filters;
 }
 //Получение максимальной и минимальной цены категории, через ГЕТ
@@ -180,6 +184,13 @@ RES;
 
         }
     return $result;
+}
+function setWhere(){
+    $where='';
+    if(!empty($_GET['max'])&&!empty($_GET['min'])){
+        $where="BETWEEN".$_GET['min']." AND ".$_GET['max'];
+    }
+
 }
 
 
