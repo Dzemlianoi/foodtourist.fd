@@ -20,7 +20,7 @@
     <?php include_once('functions.php') ?>
     <!--Верхняя полоска-->
     <div class="container-fluid header">
-        <div class="row">
+        <div class="row fix-head">
             <div class="col-md-6 left-head-bar">
                 <a href="#" class="head-menu">О магазине</a>
                 <a href="#" class="head-menu">Доставка и оплата</a>
@@ -37,7 +37,7 @@
     <!--Контактное меню-->
 
     <div class="container-fluid middlemenu">
-        <div class="row">
+        <div class="row fix-head">
             <a href="index.php"><div class="col-md-3 logo"><img width="90px" src="../images/logo.png"</div></a>
 
             </div>
@@ -76,7 +76,7 @@
         <!--Меню-->
     </div>
     <div class="container-fluid navigation navbar-height">
-        <div class="row navbar-height-100">
+        <div class="row fix-head navbar-height-100">
             <div class="navbar navbar-default navbar-height-100" id="navbar-main">
                 <div class="container navbar-height-100">
                     <ul class="navbar-nav nav">

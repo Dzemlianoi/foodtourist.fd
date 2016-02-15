@@ -1,5 +1,5 @@
 <div class="container-fluid footer">
-    <div class="row">
+    <div class="row fix-head">
         <div class="col-md-12">
             <div class="col-md-2"></div>
             <div class="col-md-2 no-border-right">
