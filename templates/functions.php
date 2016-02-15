@@ -60,7 +60,7 @@ function push_hots_or_newings($TYPE, $text){
     foreach(get_data($TYPE) as $hot){
         $push_hot.='<div class="special-element">
             <div class="'.$text.'"></div>
-            <img class="special-image" src="../images/goods/pizza/'.$hot["picture_name"].'" alt=""/>
+            <img class="special-image" src="../images/goods/'.$hot["picture_name"].'" alt=""/>
             <div class="name-box">
                 <span class="name">'.$hot["name"].'</span>
             </div>
@@ -137,7 +137,7 @@ function push_filter_of_cat(){
                 <input type="checkbox" id="${filter['param_url']}1}" name="${filter['param_url']}" value="1">
                 <label class="fil-name-chk" for="${filter['param_url']}2">Да</label>
                 <br/>
-                <input type="checkbox" id="${filter['param_url']}2" name="${filter['param_url']}" value="0">
+                <input type="checkbox" id="${filter['param_url']}2" name="no${filter['param_url']}" value="1">
                 <label class="fil-name-chk" for="${filter['param_url']}2">Нет</label>
                 <br/>
             </div>
@@ -190,13 +190,21 @@ function setWhere(){
     if(!empty($_GET['max'])&&!empty($_GET['min'])){
         $where.="AND goods.price BETWEEN ".$_GET['min']." AND ".$_GET['max'];
     }
-//    foreach(get_filters_by_cat_id() as $fil_array) {
-//        $fil_name=$fil_array['name'];
-//        $fil_value=$_GET[$fil_name];
-//        if (is_bool($fil_name)){
-//            $where.="AND goods.$fil_name=$fil_value";
-//        }
-//        }
+    foreach(get_filters_by_cat_id() as $fil_array) {
+        $fil_name=$fil_array['param_url'];
+        if(array_key_exists("$fil_name",$_GET) && array_key_exists("no$fil_name",$_GET)){
+            $where.='';
+        }elseif(array_key_exists("$fil_name",$_GET)){
+            $get_fil_name=$_GET[$fil_name];
+            if($get_fil_name==1);
+                $where.=" AND goods.$fil_name=1 ";
+        }elseif(array_key_exists("no$fil_name",$_GET) ){
+            if(($_GET["no$fil_name"])==1){
+                $where.=" AND goods.$fil_name=0 ";
+                }
+            }
+    }
+
     return $where;
 }
 
