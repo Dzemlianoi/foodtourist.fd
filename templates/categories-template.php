@@ -19,7 +19,7 @@
     <div class="col-md-8 catalog container  inline">
         <div class="row catalog-cat-name ">
              <span class="cat-name-filter"><?php echo get_current_cat_name()?></span>
-             <span class="numb-goods">(32 товара)</span>
+             <span class="numb-goods">(<?php echo (getCurrentNumOfGoods()) ?> товаров/товара)</span>
         </div>
         <div class="cat-fil-schema container">
             <div class="inline type-show-box type-chosen">

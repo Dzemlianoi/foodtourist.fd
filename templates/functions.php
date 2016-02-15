@@ -185,28 +185,36 @@ RES;
     }
     return $result;
 }
-function setWhere(){
-    $where='';
-    if(!empty($_GET['max'])&&!empty($_GET['min'])){
-        $where.="AND goods.price BETWEEN ".$_GET['min']." AND ".$_GET['max'];
+function setWhere()
+{
+    $where = '';
+    if (!empty($_GET['max']) && !empty($_GET['min'])) {
+        $where .= "AND goods.price BETWEEN " . $_GET['min'] . " AND " . $_GET['max'];
     }
-    foreach(get_filters_by_cat_id() as $fil_array) {
-        $fil_name=$fil_array['param_url'];
-        if(array_key_exists("$fil_name",$_GET) && array_key_exists("no$fil_name",$_GET)){
-            $where.='';
-        }elseif(array_key_exists("$fil_name",$_GET)){
-            $get_fil_name=$_GET[$fil_name];
-            if($get_fil_name==1);
-                $where.=" AND goods.$fil_name=1 ";
-        }elseif(array_key_exists("no$fil_name",$_GET) ){
-            if(($_GET["no$fil_name"])==1){
-                $where.=" AND goods.$fil_name=0 ";
-                }
+    foreach (get_filters_by_cat_id() as $fil_array) {
+        $fil_name = $fil_array['param_url'];
+        if (array_key_exists("$fil_name", $_GET) && array_key_exists("no$fil_name", $_GET)) {
+            $where .= '';
+        } elseif (array_key_exists("$fil_name", $_GET)) {
+            $get_fil_name = $_GET[$fil_name];
+            if ($get_fil_name == 1) ;
+            $where .= " AND goods.$fil_name=1 ";
+        } elseif (array_key_exists("no$fil_name", $_GET)) {
+            if (($_GET["no$fil_name"]) == 1) {
+                $where .= " AND goods.$fil_name=0 ";
             }
+        }
     }
-
     return $where;
 }
+function getCurrentNumOfGoods(){
+    $query="SELECT count(*) from goods WHERE cathegory_id=".get_request_param('category').' '.setWhere();;
+    $cnt_array=get_data($query);
+return $cnt_array[0]['count(*)'];
+//    return $query;
+};
+
+
 
 
 
