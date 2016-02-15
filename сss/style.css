@@ -1,10 +1,17 @@
 body{
     background-color:#fbf3e8;
 }
+/*Переопределение*/
+.container-fluid,.col-md-6, .col-md-12, .col-md-3, .row, .col-md-4,.col-md-2{
+    padding:0px;
+}
 .header{
     background-color:#773711;
     height:30px;
 
+}
+.fix-head{
+    width:98%;
 }
 .row{
     height:100%;
@@ -46,6 +53,7 @@ body{
 }
 .middlemenu .col-md-3, .middlemenu .col-md-3 .col-md-6{
     height:100%;
+    padding:0px;
 }
 .icon-contacts{
     line-height:100px;
@@ -170,6 +178,10 @@ body{
 
 .navbar-nav>li.active-cathegory{
     background-color:#cf4716;
+}
+div#navbar-main{
+    margin-right:0;
+    width:103.2%;
 }
 
 /*Слайдер*/
@@ -562,6 +574,8 @@ input[type="submit"]{
     background: url("../images/footer.png") repeat;
     height:320px;
     border-top:4px solid black;
+    padding:0px;
+    width:100%;
 }
 .footer a{
     display:block;
@@ -611,6 +625,12 @@ input[type="submit"]{
     line-height:20px;
     vertical-align:middle;
 }
+.width-100{
+    width:100%;
+    margin-left:0px;
+    margin-right:0px;
+}
+
 
 
 
