@@ -131,13 +131,15 @@ function get_filters_by_cat_id(){
 function push_filter_of_cat(){
     $push_filters='';
     foreach(get_filters_by_cat_id() as $filter){
+        $var=checked($filter['param_url']);
+        $novar=checked('no'.$filter['param_url']);
         $push_filters.=<<<HOM
             <div class="filter-block box-filter for-submit">
                 <span class="filter-name">${filter['name']}</span>
-                <input type="checkbox" id="${filter['param_url']}1}" name="${filter['param_url']}" value="1">
+                <input type="checkbox" id="${filter['param_url']}1}" $var name="${filter['param_url']}" value="1">
                 <label class="fil-name-chk" for="${filter['param_url']}2">Да</label>
                 <br/>
-                <input type="checkbox" id="${filter['param_url']}2" name="no${filter['param_url']}" value="1">
+                <input type="checkbox" id="${filter['param_url']}2" $novar name="no${filter['param_url']}" value="1">
                 <label class="fil-name-chk" for="${filter['param_url']}2">Нет</label>
                 <br/>
             </div>
@@ -197,8 +199,9 @@ function setWhere()
             $where .= '';
         } elseif (array_key_exists("$fil_name", $_GET)) {
             $get_fil_name = $_GET[$fil_name];
-            if ($get_fil_name == 1) ;
-            $where .= " AND goods.$fil_name=1 ";
+            if ($get_fil_name == 1) {
+                $where .= " AND goods.$fil_name=1 ";
+            }
         } elseif (array_key_exists("no$fil_name", $_GET)) {
             if (($_GET["no$fil_name"]) == 1) {
                 $where .= " AND goods.$fil_name=0 ";
@@ -210,9 +213,30 @@ function setWhere()
 function getCurrentNumOfGoods(){
     $query="SELECT count(*) from goods WHERE cathegory_id=".get_request_param('category').' '.setWhere();;
     $cnt_array=get_data($query);
-return $cnt_array[0]['count(*)'];
-//    return $query;
+    return $cnt_array[0]['count(*)'];
 };
+
+function checked($param){
+    $checked='';
+    if (array_key_exists($param,$_GET)){
+        $checked='checked';
+    }
+    return $checked;
+}
+function set_min_price(){
+    if (array_key_exists('min',$_GET)){
+        return intval($_GET['min']);
+    }else{
+        return (get_max_or_min_price_by_current_cat(MIN_PRICE_FROM_CATS));
+    }
+}
+function set_max_price(){
+    if (array_key_exists('max',$_GET)){
+        return intval($_GET['max']);
+    }else{
+        return (get_max_or_min_price_by_current_cat(MAX_PRICE_FROM_CATS));
+    }
+}
 
 
 

@@ -45,8 +45,7 @@
 var slider = document.getElementById('price');
 
 noUiSlider.create(slider, {
-start: [<?php echo get_max_or_min_price_by_current_cat(MIN_PRICE_FROM_CATS) ?>, <?php echo get_max_or_min_price_by_current_cat
-(MAX_PRICE_FROM_CATS) ?>],
+start: [<?php echo set_min_price() ?>, <?php echo set_max_price() ?>],
 connect: true,
 range: {
 'min': <?php echo get_max_or_min_price_by_current_cat(MIN_PRICE_FROM_CATS)?>,
